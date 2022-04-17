@@ -18,7 +18,7 @@ public class AmazeSDKExporter : MonoBehaviour
             //Export Shaders and Prefabs with their dependencies into a .unitypackage
             AssetDatabase.ExportPackage(exportedPackageAssetList.ToArray(), $"Assets/_Export/{PlayerPrefs.GetString("assetbundlename")}.unitypackage",
                 ExportPackageOptions.Recurse | ExportPackageOptions.IncludeDependencies);
-            Debug.LogFormat("<color=green>|Export Package|</color>: Exported your Prefab and all associated assets as the Package <color=fuchsia><b>{0}</b></color>", $"./Assets/_Export/{PlayerPrefs.GetString("assetbundlename")}.unitypackage");
+            Debug.LogFormat("<color=lime>|Export Package|</color>: Exported your Prefab and all associated assets as the Package <color=fuchsia><b>{0}</b></color>", $"./Assets/_Export/{PlayerPrefs.GetString("assetbundlename")}.unitypackage");
         }
         else
         {

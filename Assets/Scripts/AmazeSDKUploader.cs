@@ -2,6 +2,9 @@ using UnityEngine;
 using System.IO.Compression;
 using System.IO;
 using Newtonsoft.Json;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class AmazeSDKUploader : MonoBehaviour
 {
@@ -15,30 +18,39 @@ public class AmazeSDKUploader : MonoBehaviour
             string ZipPath = Application.dataPath + "/" + PlayerPrefs.GetString("assetbundlename") + ".zip";
             if (!File.Exists(ZipPath))
             {
-
+                Debug.LogFormat("<color=yellow>|Zipping up _Export folder|</color>: Started Creating Zip at: <color=fuchsia><b>{0}</b></color>", ZipPath);
                 ZipFile.CreateFromDirectory(ExportPath, ZipPath);
                 PlayerPrefs.SetString("zippath", ZipPath);
-                Debug.LogFormat("<color=green>|Zipped up _Export folder|</color>: Created Zip at: <color=fuchsia><b>{0}</b></color>", ZipPath);
+                Debug.LogFormat("<color=lime>|Zipped up _Export folder|</color>: Created Zip at: <color=fuchsia><b>{0}</b></color>", ZipPath);
             }
             else
             { 
                 Debug.LogFormat("<color=red>|Zipped up _Export folder|</color>: Failed Creating Zip at: <color=fuchsia><b>{0}</b></color> as the file already exists \n <color=yellow>(To Replace the Zip with a new one please manually delete the current one, potentially after making backups)</color>", ZipPath);
             }
-
+            AssetDatabase.Refresh(ImportAssetOptions.ForceUpdate);
         }
     }
     [EasyButtons.Button]
     public void UploadZip() 
     {
-        WWWForm form = new WWWForm();
+        if (PlayerPrefs.HasKey("assetbundlename") && PlayerPrefs.HasKey("zippath"))
+        {
+            Debug.LogFormat("<color=yellow>|File Uploading|</color>: Started uploading zip for review as : <color=olive><b>{0}</b></color>", $"{ PlayerPrefs.GetString("assetbundlename")}.zip");
 
-        form.AddBinaryData("assetbundle", File.ReadAllBytes(PlayerPrefs.GetString("zippath")), $"{ PlayerPrefs.GetString("assetbundlename")}.zip", "file");
-        Utility.StartBackgroundTask(
-                Utility.PostForumRequest(
-                    "https://api.amaze-space.com/UploadAssetBundle",
-                    form,
-                    UploadResponse
-                ));
+            WWWForm form = new WWWForm();
+
+            form.AddBinaryData("assetbundle", File.ReadAllBytes(PlayerPrefs.GetString("zippath")), $"{ PlayerPrefs.GetString("assetbundlename")}.zip", "file");
+            Utility.StartBackgroundTask(
+                    Utility.PostForumRequest(
+                        "https://api.amaze-space.com/UploadAssetBundle",
+                        form,
+                        UploadResponse
+                    ));
+        }
+        else 
+        {
+            Debug.LogFormat("<color=red>|File Upload|</color>: Failed to upload zip because: {0}", "No AssetbundleName or Zip Path Specified");
+        }
     }
     public void UploadResponse(string s) 
     {
@@ -49,7 +61,7 @@ public class AmazeSDKUploader : MonoBehaviour
         }
         else 
         {
-            Debug.LogFormat("<color=green>|File Upload|</color>: Successfully uploaded zip for review as : <color=olive><b>{0}</b></color>", responseModel.data.uploadedAs);
+            Debug.LogFormat("<color=lime>|File Upload|</color>: Successfully uploaded zip for review as : <color=olive><b>{0}</b></color>", responseModel.data.uploadedAs);
 
         }
     }

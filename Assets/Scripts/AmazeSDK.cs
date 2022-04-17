@@ -37,7 +37,7 @@ public class AmazeSDK : MonoBehaviour
         if (LoginResponse.Status == 200)
         {
             HasLoggedIn = true;
-            Debug.LogFormat("<color=green>|Login Response|</color>: {0}", LoginResponse.Msg);
+            Debug.LogFormat("<color=lime>|Login Response|</color>: {0}", LoginResponse.Msg);
             PlayerPrefs.SetString("token", LoginResponse.Token);
         }
         else
@@ -60,7 +60,7 @@ public class AmazeSDK : MonoBehaviour
         if (exhibitByUserArtist.Status == 200)
         {
             MyExhibits = exhibitByUserArtist.data;  
-            Debug.LogFormat("<color=green>|Fetch Exhibits Response|</color>: Fetched your exhibits, You can create a template for any of your available Booths, by selecting an index and clicking invoke");
+            Debug.LogFormat("<color=lime>|Fetch Exhibits Response|</color>: Fetched your exhibits, You can create a template for any of your available Booths, by selecting an index and clicking invoke");
         }
         else
         {
@@ -85,7 +85,10 @@ public class AmazeSDK : MonoBehaviour
         GameObject NewVariantInstance = PrefabUtility.InstantiatePrefab(prefabVariant) as GameObject;
         NewVariantInstance.transform.SetAsLastSibling();
 
-        Debug.LogFormat("<color=green>|Initialised Booth|</color>: Created your Booth Template, <b><i>Select</i></b> the prefab called <color=aqua><b>{0}</b></color> in the Hierarchy, Click <b><i>Open</i></b> in the Inspector and Start Building! \n <color=yellow>(Selecting this option again will override your prefab with a fresh template)</color>", AssetBundleName+ "_booth");
+        Debug.LogFormat("<color=lime>|Initialised Booth|</color>: Created your Booth Template, <b><i>Select</i></b> the prefab called <color=aqua><b>{0}</b></color> in the Hierarchy, Click <b><i>Open</i></b> in the Inspector and Start Building! \n <color=yellow>(Selecting this option again will override your prefab with a fresh template)</color>", AssetBundleName+ "_booth");
+        string BoothURL = "https://dashboard.amaze-space.com/games?game=" + MyExhibits[index].ID;
+        Application.OpenURL(BoothURL);
+        Debug.LogFormat("<color=lime>|Opened Game On Dashboard|</color>: Opened your Browser at: <color=aqua><b>{0}</b></color>", BoothURL);
     }
 #endif
 }

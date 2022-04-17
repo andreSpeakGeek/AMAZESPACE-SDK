@@ -202,7 +202,7 @@ namespace Jacovone.AssetBundleMagic
 
                 BuildVersionsFileForPlatform (m, man.BundlesBasePath + "/" + "Windows");
             }
-            Debug.LogFormat("<color=green>|Built Asset Bundles|</color>: Your asset bundles have been Created in the <b><i>_Export</i></b> folder");
+            Debug.LogFormat("<color=lime>|Built Asset Bundles|</color>: Your asset bundles have been Created in the <b><i>_Export</i></b> folder");
         }
 
         private void BuildVersionsFileForPlatform (AssetBundleManifest m, string basePath)
