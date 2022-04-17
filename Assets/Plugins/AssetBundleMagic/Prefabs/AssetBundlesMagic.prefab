@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1972600698049096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4151487748147892}
+  - component: {fileID: 114954039749825444}
+  m_Layer: 0
+  m_Name: AssetBundlesMagic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4151487748147892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972600698049096}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -15.25402, y: -8.566304, z: -4.6342144}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114954039749825444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972600698049096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9c3a5a118574cc0a6a2e7cc2d2a4b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BundlesBaseUrl: http://localhost:8000
+  BundlesBasePath: Assets/StreamingAssets
+  DisableHTTPServerCache: 1
+  TestMode: 1
+  BuildIosBundle: 0
+  BuildAndroidBundle: 0
+  BuildOSXBundle: 0
+  BuildWindowsBundle: 0
+  BuildVersions:
+    _Buckets: ffffffffffffffff03000000ffffffffffffffffffffffff08000000ffffffffffffffff040000000500000006000000070000000000000001000000ffffffffffffffff
+    _HashCodes: 3284b54b8785b54b14c5131d67f9df49f6ab2167f7ab2167f8ab2167f9ab216778825a390000000000000000000000000000000000000000000000000000000000000000
+    _Next: ffffffffffffffffffffffffffffffffffffffff02000000ffffffffffffffffffffffff0000000000000000000000000000000000000000000000000000000000000000
+    _Count: 9
+    _Version: 120849
+    _FreeList: -1
+    _FreeCount: 0
+    _Keys:
+    - images.hd
+    - images.sd
+    - objects
+    - scenes
+    - scenes_s1
+    - scenes_s2
+    - scenes_s3
+    - scenes_s4
+    - images
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    - 
+    _Values: 0100000001000000660000000100000001000000010000000100000001000000000000000000000000000000000000000000000000000000000000000000000000000000
