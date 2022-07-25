@@ -276,6 +276,10 @@ PrefabInstance:
       value: Assets/_Export/
       objectReference: {fileID: 0}
     - target: {fileID: 114954039749825444, guid: 8ccf8c847b50c43a981f2751c5ecb94e, type: 3}
+      propertyPath: BuildAndroidBundle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114954039749825444, guid: 8ccf8c847b50c43a981f2751c5ecb94e, type: 3}
       propertyPath: BuildWindowsBundle
       value: 1
       objectReference: {fileID: 0}

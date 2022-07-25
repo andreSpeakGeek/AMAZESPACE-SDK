@@ -58,10 +58,10 @@ namespace Jacovone.AssetBundleMagic
             //EditorGUILayout.PropertyField (serializedObject.FindProperty ("BundlesBaseUrl"), new GUIContent ("Bundles Url", "The base url for all bundles to download."));
             EditorGUILayout.PropertyField (serializedObject.FindProperty ("BundlesBasePath"), new GUIContent ("Bundles Path", "The complete path for all local bundles. Should include Bundles Directory."));
 
-            //EditorGUIUtility.labelWidth = 200;
-            //EditorGUILayout.PropertyField (serializedObject.FindProperty ("DisableHTTPServerCache"), new GUIContent ("Disable HTTP Server Cache", "Tells the HTTP server to not use cache for bundles and versions file."));
-            //EditorGUILayout.PropertyField (serializedObject.FindProperty ("TestMode"), new GUIContent ("Work in Test Mode", "When enabled, Test Mode will load bundles locally instead of download them from the network."));
-            //EditorGUIUtility.labelWidth = 100;
+            EditorGUIUtility.labelWidth = 200;
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("DisableHTTPServerCache"), new GUIContent("Disable HTTP Server Cache", "Tells the HTTP server to not use cache for bundles and versions file."));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("TestMode"), new GUIContent("Work in Test Mode", "When enabled, Test Mode will load bundles locally instead of download them from the network."));
+            EditorGUIUtility.labelWidth = 100;
 
             EditorGUILayout.LabelField ("Platforms", headerStyle);
 
@@ -70,10 +70,10 @@ namespace Jacovone.AssetBundleMagic
             }
 
 
-            //EditorGUILayout.BeginHorizontal ();
-            //EditorGUILayout.PropertyField (serializedObject.FindProperty ("BuildIosBundle"), new GUIContent ("iOS Build", "Generate iOS bundles at next build."));
-            //EditorGUILayout.PropertyField (serializedObject.FindProperty ("BuildAndroidBundle"), new GUIContent ("Android Build", "Generate iOS bundles at next build."));
-            //EditorGUILayout.EndHorizontal ();
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("BuildIosBundle"), new GUIContent("iOS Build", "Generate iOS bundles at next build."));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("BuildAndroidBundle"), new GUIContent("Android Build", "Generate iOS bundles at next build."));
+            EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.BeginHorizontal ();
             EditorGUILayout.PropertyField (serializedObject.FindProperty ("BuildOSXBundle"), new GUIContent ("macOS Build", "Generate macOS Intel bundles at next build."));
