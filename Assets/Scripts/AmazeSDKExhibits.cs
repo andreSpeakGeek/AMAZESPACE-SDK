@@ -6,45 +6,16 @@ using System.Text;
 using EasyButtons;
 using UnityEngine.Networking;
 #if UNITY_EDITOR
+using UnityEditor.SceneManagement;
 using UnityEditor;
 #endif
 using Newtonsoft.Json;
 
-public class AmazeSDK : MonoBehaviour
+public class AmazeSDKExhibits : MonoBehaviour
 {
-    [Header("Booth Creation")]
-    public string Email;
-    public string Password;
-    public bool HasLoggedIn = false;
-    public static LoginResponseModel LoginResponse;
-    public List<exhibitNameDataModel> MyExhibits = new List<exhibitNameDataModel>();
-    private const string version = "0.0.1";
 
+    public List<exhibitNameDataModel> MyExhibits = new List<exhibitNameDataModel>();
 #if UNITY_EDITOR
-    [Button]
-    public void Login()
-    {
-        Utility.StartBackgroundTask(
-            Utility.PostRequest(
-                "https://api.amaze-space.com/login",
-                @$"{{""email"":""{Email}"",""password"":""{Password}"",""tags"":""sdk|v{version}""}}",
-                LoginCallback
-            ));
-    }
-    void LoginCallback(string response) 
-    {
-        LoginResponse = JsonConvert.DeserializeObject<LoginResponseModel>(response);
-        if (LoginResponse.Status == 200)
-        {
-            HasLoggedIn = true;
-            Debug.LogFormat("<color=lime>|Login Response|</color>: {0}", LoginResponse.Msg);
-            PlayerPrefs.SetString("token", LoginResponse.Token);
-        }
-        else
-        {
-            Debug.LogFormat("<color=red>|Login Response|</color>: Something went wrong : {0}",LoginResponse.Msg);
-        }
-    }
     [Button]
     public void FetchMyExhibits() 
     {
@@ -201,6 +172,9 @@ public class LoginResponseModel
 
     [JsonProperty("token")]
     public string? Token;
+
+    [JsonProperty("naviagation")]
+    public string? Naviagation;
 
     public override string ToString()
     {

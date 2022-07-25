@@ -46,6 +46,7 @@ public class AmazeSDKUploader : MonoBehaviour
                         form,
                         UploadResponse
                     ));
+            form.AddField("type","unspecified");
         }
         else 
         {

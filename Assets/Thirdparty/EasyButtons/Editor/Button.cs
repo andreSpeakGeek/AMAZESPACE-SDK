@@ -5,6 +5,7 @@
     using UnityEditor;
     using Utils;
     using System.Collections.Generic;
+    using UnityEngine;
 
     /// <summary>
     /// A class that holds information about a button and can draw it in the inspector.
@@ -34,7 +35,7 @@
                 ? buttonAttribute.Mode == ButtonMode.EnabledInPlayMode
                 : buttonAttribute.Mode == ButtonMode.DisabledInPlayMode;
 
-            _disabled = ! (buttonAttribute.Mode == ButtonMode.AlwaysEnabled || inAppropriateMode);
+            _disabled = (! (buttonAttribute.Mode == ButtonMode.AlwaysEnabled || inAppropriateMode));
         }
 
         public void Draw(IEnumerable<object> targets)
