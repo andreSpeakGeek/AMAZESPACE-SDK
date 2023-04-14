@@ -9,7 +9,7 @@ Prerequisites:
 * Unity 2020.3.33f1 (LTS)
     * Mac and Windows build Support Installed
 * An Artist Account for A MAZE./ SPACE
-    * If you are a 2022 Nominee/Honorable Mention your specified Email will be preloaded into the system, when you register (either on the Dashboard or on the A MAZE./ SPACE application) it will automatically associate your Artist Profile with your account. 
+    * If you are a 2023 Nominee/Honorable Mention your specified Email will be preloaded into the system, when you register (either on the Dashboard or on the A MAZE./ SPACE application) it will automatically associate your Artist Profile with your account. 
 * [Edit your Booth text/video content on the Dashboard](https://dashboard.amaze-space.com/login)    
 
 Creating & Submitting a Custom A MAZE./ SPACE Exhibit :
@@ -19,7 +19,7 @@ Open the Assets/Scenes/AssetBundleCreation.unity Scene.
 1. Start at the "**1 ---Amaze SDK Login ---**" object in the Hierarchy.
    * Enter Account Details. 
    * Click the **Login** button in your inspector.
-   * The SDK will load a diffrent scene up for you.
+      * The SDK will load a diffrent scene up for you.
    * Click the **Fetch My Exhibits** button in your inspector.
    * Expand the **My Exhibits List** and review you have one or more exhibits available.
    * Select the **Invoke** button next to InitialiseBooth, optionally select an index for the booth you want to create a template prefab for. 
@@ -60,11 +60,15 @@ To restore your efforts:
 
 Creating & Submitting a Decor Item for the A MAZE./ SPACE :
 -----------------------------------------------------------
-Coming Soon.
+Coming Soon. Check out the workshop at A MAZE./ Berlin for more information on this!
 
 Submitting a 2D Decor Sprites for the A MAZE./ SPACE :
 ------------------------------------------------------
-Coming Soon.
+Coming Soon. Check out the workshop at A MAZE./ Berlin for more information on this!
+
+Creating & Submitting a Custom A MAZE./ SPACE Exhibit :
+-------------------------------------------------------
+This feature is currently supported but only used for Events, if you are an event manager and want more information please Speak to Andre on Discord. 
 
 Support
 -------
@@ -75,12 +79,11 @@ Alternatively contact the exhibits@amaze-space.com email address.
 Dev Details
 -----------
 * This SDK Saves values into the PlayerPrefs for ease of persistence of data.
-    * Managing an Active Manifest File for the current state of the "SDK" felt like too much complexity just yet.   
 * The Generated files generate into the Prefabs & _Export folders.
 * The Files all the content gets generated from can be found in the "DefaultBooth" Folder
 * The Console shows each step completed and the next actions to take. 
-* Please Feel Free to look around the code, however not taking pull requests, this is a snapshot of a Plastic SCM Repo
-* Tested in a Windows Environment. Ran once on a MAC to verify, but not battle tested on MAC.  
+* Please Feel Free to look around the code, if there are any changes you'd reccomend I am happy to make them. 
+* Tested in a Windows Environment. Verified on Mac, if you encounter any problems on Mac please make sure you are using the right Unity Version.    
 
 ---------------------
 
