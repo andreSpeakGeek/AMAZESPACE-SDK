@@ -19,6 +19,7 @@ Open the Assets/Scenes/AssetBundleCreation.unity Scene.
 1. Start at the "**1 ---Amaze SDK Login ---**" object in the Hierarchy.
    * Enter Account Details. 
    * Click the **Login** button in your inspector.
+   * The SDK will load a diffrent scene up for you.
    * Click the **Fetch My Exhibits** button in your inspector.
    * Expand the **My Exhibits List** and review you have one or more exhibits available.
    * Select the **Invoke** button next to InitialiseBooth, optionally select an index for the booth you want to create a template prefab for. 
