@@ -15,10 +15,11 @@ Prerequisites:
 Creating & Submitting a Custom A MAZE./ SPACE Exhibit :
 -------------------------------------------------------
 
-Open the Assets/Scenes/AssetBundleCreation.unity Scene. 
+Open the Assets/Scenes/AMAZE SDK.unity Scene. 
 1. Start at the "**1 ---Amaze SDK Login ---**" object in the Hierarchy.
    * Enter Account Details. 
    * Click the **Login** button in your inspector.
+   * Select the **2 ---Choose Option---** object in the Hierarchy and select the **Create An Exhibits** button.
       * The SDK will load a diffrent scene up for you.
    * Click the **Fetch My Exhibits** button in your inspector.
    * Expand the **My Exhibits List** and review you have one or more exhibits available.
@@ -60,11 +61,60 @@ To restore your efforts:
 
 Creating & Submitting a Decor Item for the A MAZE./ SPACE :
 -----------------------------------------------------------
-Coming Soon. Check out the workshop at A MAZE./ Berlin for more information on this!
+
+Open the Assets/Scenes/AMAZE SDK.unity Scene. 
+1. Start at the "**1 ---Amaze SDK Login ---**" object in the Hierarchy.
+   * Enter Account Details. 
+   * Click the **Login** button in your inspector.
+   * Select the **2 ---Choose Option---** object in the Hierarchy and select the **Create Decor** button.
+      * The SDK will load a diffrent scene up for you.
+   * Select the  **1 ---Amaze SDK Decor---** object in the Heirarchy.
+   * Expand the **Initialize Decor** and enter a name for your Decor item and click **Invoke**.
+2. Select your newly created prefab that was spawned for you in the Hierarchy and Click the **Open** button in the Inspector. 
+   * You can add any objects, models, sprites etc you would like to your prefab.
+       * Animations and Particle effects are supported by AsseBundles and are good at drawing attention. 
+   * Please Note AssetBundles do not support adding C# scripts.
+3. We're going to Use AssetBundleMagic a wonderful asset to make managing assetbundle building and versioning simple. 
+   * If you are still in the Prefab view, there is a back button at the top of the Hierarchy window. 
+   * Make sure that there is no existing folder called **_Exports**, if there is one make sure there is no files in that directory.
+   * Simply Select "**3 ---AssetBundlesMagic---**" in the Hierarchy view. Then Click the "Build all AssetBundles" button.
+       * If your asset bundles are not generating correctly you might not have a specific platform build support installed.
+4. Select the "**4 ---Zip & Upload---**" object in your hierarchy.
+   * Click The **Zip Up Decor Assets** button in your inspector.
+     * This Generates a zip file of your asset bundle in the _Export folder with recursive dependancies
+   * Once the zip file has been generated you can click the **Upload Decor Zip** button.
+      * This process may take a while depending on the size of your asset bundle.
+      * This process uploads your zipped up asset bundle to the Amaze server where an Amaze admin user will have the ability to load your 
+      asset bundle into the amaze space and potentially have it saved there permanently for the whole world to see.
+
+Congratulations you've completed the A MAZE./ SPACE custom decor submission process. 
 
 Submitting a 2D Decor Sprites for the A MAZE./ SPACE :
 ------------------------------------------------------
-Coming Soon. Check out the workshop at A MAZE./ Berlin for more information on this!
+
+Open the Assets/Scenes/AMAZE SDK.unity Scene. 
+1. Start at the "**1 ---Amaze SDK Login ---**" object in the Hierarchy.
+   * Enter Account Details. 
+   * Click the **Login** button in your inspector.
+   * Select the **2 ---Choose Option---** object in the Hierarchy and select the **Create Decor Sprite** button.
+      * The SDK will load a diffrent scene up for you.
+2. * Select the  **1 ---Amaze SDK Decor Sprite---** object in the Heirarchy.
+   * Expand the **Initialize Decor Sprite** and drag a sprite into the input box and click **Invoke**.
+3. After initializing your sprite you notice a few things: 
+   * You sprite will replace the default sprite already in the Enviroment on the **AmazeSpriteDecor**.
+   * The values in the inspector will change depending on the settings of the sprite you have just initialized.
+   * Feel free to manaully change these settings as you please if you understand how sprites work in Unity, 
+   I would recommend changing the **Decor Sprite Name** to something more meaningful.
+   * If you would like to tweak the values and see the live preview you can select your image in the project folder that you have initialized
+   and tweak those values in the inspector and click the **Apply** button.
+   * Go back to scene view and you will see your sprite has changed but the inspector values on the **1 ---Amaze SDK Decor Sprite---** object 
+   have not changed, to fix this will simply hit the **Update Image Settings** button and you should see your tweaked values matching the ones 
+   you just set.
+4. Once you are happy with your changes you can click the **Upload Decor Sprite** button.
+      * This process uploads your decor sprite with your settings to the Amaze server where an Amaze admin user will have the ability to load your 
+      decor sprite into the amaze space and potentially have it saved there permanently for the whole world to see.
+
+Congratulations you've completed the A MAZE./ SPACE custom decor sprite submission process. 
 
 Creating & Submitting a Custom A MAZE./ SPACE Exhibit :
 -------------------------------------------------------

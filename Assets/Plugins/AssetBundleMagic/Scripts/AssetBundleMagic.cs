@@ -170,7 +170,7 @@ namespace Jacovone.AssetBundleMagic
         /// The base path of bundles, where AssetBundleMagic will generate bundles, and from
         /// which bundles are loaded, when the user load bundles locally via scripting.
         /// </summary>
-        public string BundlesBasePath = "Assets/StreamingAssets";
+        public string BundlesBasePath = "Assets/_Export/";
 
         /// <summary>
         /// Disable the HTTP server cache. If ttrue, AssetBundleMagic, will insert

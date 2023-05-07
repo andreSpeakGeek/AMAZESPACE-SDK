@@ -17,7 +17,7 @@ public class AmazeSDKLogin:MonoBehaviour {
     public string Password;
     public bool HasLoggedIn = false;
     public static LoginResponseModel LoginResponse;
-    private const string version = "0.0.2";
+    private const string version = "0.0.4";
 
 #if UNITY_EDITOR
     [Button]
@@ -44,10 +44,10 @@ public class AmazeSDKLogin:MonoBehaviour {
         {
             Debug.LogFormat("<color=red>|Login Response|</color>: Something went wrong : {0}", LoginResponse.Msg);
         }
-        if (LoginResponse.Naviagation == "exhibits")
-        {
-            EditorSceneManager.OpenScene(Application.dataPath + "/Scenes/AssetbundleCreation.unity", OpenSceneMode.Single);
-        }
+        //if (LoginResponse.Naviagation == "exhibits")
+        //{
+        //    EditorSceneManager.OpenScene(Application.dataPath + "/Scenes/AssetbundleCreation.unity", OpenSceneMode.Single);
+        //}
     }
 
     [ContextMenu("ResetSDK")]

@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using Jacovone.AssetBundleMagic.Util;
+using System.Diagnostics;
+using static PlasticGui.LaunchDiffParameters;
 
 namespace Jacovone.AssetBundleMagic
 {
@@ -154,9 +156,41 @@ namespace Jacovone.AssetBundleMagic
 
         void BuildABs ()
         {
+            bool isWindowsBuildSupportInstalled = BuildPipeline.IsBuildTargetSupported(BuildTargetGroup.Standalone, BuildTarget.StandaloneWindows);
+            bool isMacBuildSupportInstalled = BuildPipeline.IsBuildTargetSupported(BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX);
+
+            if (!isMacBuildSupportInstalled)
+            {
+                UnityEngine.Debug.LogError("<color=red>Error:</color> Mac Build Support not installed. Please ensure that you have downloaded " +
+                                           "and installed Mac Build Support for Unity version 2020.3.33f1 to build assets for Mac." +
+                                           " To download it, go to Unity Hub > Installs > 2020.3.33f1 > Add Modules > " +
+                                           "check the Mac Build Support option > click Continue. After downloading, please restart the Unity Editor.");
+                return;
+            }
+            if (!isWindowsBuildSupportInstalled)
+            {
+                UnityEngine.Debug.LogError("<color=red>Error:</color> Windows Build Support not installed. Please ensure that you have downloaded " +
+                                           "and installed Windows Build Support for Unity version 2020.3.33f1 to build assets for Windows." +
+                                           " To download it, go to Unity Hub > Installs > 2020.3.33f1 > Add Modules > " +
+                                           "check the Windows Build Support option > click Continue. After downloading, please restart the Unity Editor.");
+                return;
+            }
 
             AssetBundleMagic man = (AssetBundleMagic)target;
             string basePathDir = new DirectoryInfo (man.BundlesBasePath).Name;
+
+            if (!man.BuildWindowsBundle)
+            {
+                UnityEngine.Debug.LogError("<color=red>Error:</color> It looks like the Windows Build option was not ticked, please make sure you" +
+                    " tick it in the Inspector Window!");
+                return;
+            }
+            if (!man.BuildOSXBundle)
+            {
+                UnityEngine.Debug.LogError("<color=red>Error:</color> It looks like the macOS Build option was not ticked, please make sure you" +
+                    " tick it in the Inspector Window!");
+                return;
+            }
 
             if (!AssetDatabase.IsValidFolder (man.BundlesBasePath)) {
                 AssetDatabase.CreateFolder ("Assets", basePathDir);
@@ -202,7 +236,7 @@ namespace Jacovone.AssetBundleMagic
 
                 BuildVersionsFileForPlatform (m, man.BundlesBasePath + "/" + "Windows");
             }
-            Debug.LogFormat("<color=lime>|Built Asset Bundles|</color>: Your asset bundles have been Created in the <b><i>_Export</i></b> folder");
+            UnityEngine.Debug.LogFormat("<color=lime>|Built Asset Bundles|</color>: Your asset bundles have been Created in the <b><i>_Export</i></b> folder");
         }
 
         private void BuildVersionsFileForPlatform (AssetBundleManifest m, string basePath)

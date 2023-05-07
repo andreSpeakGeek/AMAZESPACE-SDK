@@ -1,5 +1,6 @@
 ﻿using EasyButtons;
 using UnityEngine;
+using UnityEngine.UI;
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -12,6 +13,16 @@ public class AmazeSDKChooseOption : MonoBehaviour
     public void CreateAnExhibits()
     {
         EditorSceneManager.OpenScene(Application.dataPath + "/Scenes/AssetbundleCreation.unity", OpenSceneMode.Single);
+    }
+    [Button]
+    public void CreateDecor()
+    {
+        EditorSceneManager.OpenScene(Application.dataPath + "/Scenes/AmazeDecorCreation.unity", OpenSceneMode.Single);
+    }
+    [Button]
+    public void CreateDecorSprite()
+    {
+        EditorSceneManager.OpenScene(Application.dataPath + "/Scenes/AmazeSpriteCreation.unity", OpenSceneMode.Single);
     }
     [Button]
     public void CreateAScene(string name)
