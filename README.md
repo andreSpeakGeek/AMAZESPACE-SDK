@@ -1,4 +1,4 @@
-AMAZESPACE-SDK V0.0.1
+AMAZESPACE-SDK V0.0.4
 =================
 Welcome to the A MAZE./ SPACE "SDK", this is a Unity project in Unity 2020.3.33f1.
 
