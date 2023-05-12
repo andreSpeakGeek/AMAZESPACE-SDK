@@ -127,7 +127,7 @@ public class AmazeSDKDecorSprite : MonoBehaviour
 
     public void UploadResponse(string s)
     {
-        UploadDecorResponse responseModel = JsonConvert.DeserializeObject<UploadDecorResponse>(s);
+        DecorSpriteUploadResponse responseModel = JsonConvert.DeserializeObject<DecorSpriteUploadResponse>(s);
         if (responseModel.Status != 200)
         {
             Debug.LogFormat("<color=red>|File Upload|</color>: Failed to upload sprite because: {0}", responseModel.Msg);
